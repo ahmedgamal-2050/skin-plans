@@ -1,0 +1,742 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="theme-color" content="#000000">
+  <!--<link rel="icon" href="./favicon.ico">-->
+  <title>Skin Plans</title>
+  <!-- Arabic Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&amp;display=swap" rel="stylesheet">
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Webcam Easy JS -->
+  <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="px-3 px-6 shadow">
+    <nav class="d-flex justify-center">
+      <div>
+        <a href="index.html">
+          <img width="118" height="45" src="img/skin-plans-logo.png" alt="Skin Plans Logo" />
+        </a>
+      </div>
+    </nav>
+  </header>
+  <!-- Progess Bar -->
+  <section class="px-3 px-6 py-1">
+    <p class="text-left" id="progress-ratio">13 / 1</p>
+    <div class="progress w-100">
+      <div class="w-1-13 bg-main" id="progress-bar">
+      </div>
+    </div>
+  </section>
+  <!-- Skin Form -->
+  <section>
+    <form action="#" id="skin-form">
+      <!-- Page 1 -->
+      <div class="text-center" id="page-1">
+        <p class="mb-1">
+          بشرتي تعاني من ….. (يمكنك اختيار اكتر من مشكلة)
+        </p>
+        <ul class="mb-2">
+          <li>
+            <span class="btn-outline-select">
+              الجفاف
+              <input type="checkbox" name="skin-problem" value="11" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-select">
+              الخطوط الرفيعة
+              <input type="checkbox" name="skin-problem" value="12" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-select">
+              البقع الداكنة
+              <input type="checkbox" name="skin-problem" value="13" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-select">
+              التجاعيد
+              <input type="checkbox" name="skin-problem" value="14" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-select">
+              الانتفاخ أسفل العين
+              <input type="checkbox" name="skin-problem" value="15" hidden />
+            </span>
+          </li>
+        </ul>
+        <button type="button" id="form-1-btn" class="btn-circle text-white btn-main disabled"
+                onclick="nextPage(2)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Page 2 -->
+      <div class="text-center d-none" id="page-2">
+        <p class="mb-1">
+          نوع بشرتي…
+        </p>
+        <ul class="mb-2">
+          <li>
+            <span class="btn-outline-radio" data-form-number="2">
+              دهنية
+              <input type="radio" name="skin-type" value="21" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="2">
+              مختلطة
+              <input type="radio" name="skin-type" value="22" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="2">
+              عادية
+              <input type="radio" name="skin-type" value="23" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="2">
+              جافة
+              <input type="radio" name="skin-type" value="24" hidden />
+            </span>
+          </li>
+        </ul>
+        <button type="button" id="form-2-btn-next" class="btn-circle text-white btn-main disabled"
+                onclick="nextPage(3)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button type="button" id="form-2-btn-previous" class="btn-circle text-white btn-main"
+                onclick="previousPage(1)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Page 3 -->
+      <div class="text-center d-none" id="page-3">
+        <p class="mb-1">
+          البقع الداكنة في بشرتي موجودة بنسبة..؟
+        </p>
+        <ul class="mb-2">
+          <li>
+            <span class="btn-outline-radio" data-form-number="3">
+              منعدمة
+              <input type="radio" name="skin-type" value="31" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="3">
+              صغيرة
+              <input type="radio" name="skin-type" value="32" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="3">
+              متوسطة
+              <input type="radio" name="skin-type" value="33" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="3">
+              كبيرة
+              <input type="radio" name="skin-type" value="34" hidden />
+            </span>
+          </li>
+        </ul>
+        <button type="button" id="form-3-btn-next" class="btn-circle text-white btn-main disabled"
+                onclick="nextPage(4)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button type="button" id="form-3-btn-previous" class="btn-circle text-white btn-main"
+                onclick="previousPage(2)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Page 4 -->
+      <div class="text-center d-none" id="page-4">
+        <p class="mb-1">
+          الخطوط الرفيعة الموجودة على بشرتي
+        </p>
+        <ul class="mb-2">
+          <li>
+            <span class="btn-outline-radio" data-form-number="4">
+              تظهر عند الابتسام
+              <input type="radio" name="skin-type" value="41" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="4">
+              خفيفة
+              <input type="radio" name="skin-type" value="42" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="4">
+              واضحة
+              <input type="radio" name="skin-type" value="43" hidden />
+            </span>
+          </li>
+        </ul>
+        <button type="button" id="form-4-btn-next" class="btn-circle text-white btn-main disabled"
+                onclick="nextPage(5)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button type="button" id="form-4-btn-previous" class="btn-circle text-white btn-main"
+                onclick="previousPage(3)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Page 5 -->
+      <div class="text-center d-none" id="page-5">
+        <p class="mb-1">
+          التجاعيد على بشرتي
+        </p>
+        <ul class="mb-2">
+          <li>
+            <span class="btn-outline-radio" data-form-number="5">
+              غير موجودة حتى الآن
+              <input type="radio" name="skin-type" value="51" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="5">
+              قليلة و سطحية
+              <input type="radio" name="skin-type" value="52" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="5">
+              منتشرة و عميقة
+              <input type="radio" name="skin-type" value="53" hidden />
+            </span>
+          </li>
+        </ul>
+        <button type="button" id="form-5-btn-next" class="btn-circle text-white btn-main disabled"
+                onclick="nextPage(6)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button type="button" id="form-5-btn-previous" class="btn-circle text-white btn-main"
+                onclick="previousPage(4)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Page 6 -->
+      <div class="text-center d-none" id="page-6">
+        <p class="mb-1">
+          أشرب …. كوب يوميا
+        </p>
+        <ul class="mb-2">
+          <li>
+            <span class="btn-outline-radio" data-form-number="6">
+              < 5
+              <input type="radio" name="skin-type" value="61" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="6">
+              6 - 5
+              <input type="radio" name="skin-type" value="62" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="6">
+              7 - 6
+              <input type="radio" name="skin-type" value="63" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="6">
+              8 - 7
+              <input type="radio" name="skin-type" value="64" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="6">
+              8+
+              <input type="radio" name="skin-type" value="65" hidden />
+            </span>
+          </li>
+        </ul>
+        <button type="button" id="form-6-btn-next" class="btn-circle text-white btn-main disabled"
+                onclick="nextPage(7)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button type="button" id="form-6-btn-previous" class="btn-circle text-white btn-main"
+                onclick="previousPage(5)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Processing -->
+      <div id="processing" class="text-center px-3 d-none">
+        <p class="h4 mb-1">
+          جاري معالجة بياناتك
+        </p>
+        <div class="w-40 mx-auto mb-1">
+          <div class="progress w-100">
+            <div class="progress-animate progress-bar">
+            </div>
+          </div>
+        </div>
+        <h4 class="w-40 mx-auto">
+          <span>
+            ايجاد الروتين المناسب لبشرتك يمكن أن يكون من الصعب اكتشافه، وهنا يأتي دور
+          </span>
+          <img class="d-inline-block vertical-align-bottom" width="120" height="45"
+               src="img/skin-plans-logo.png" alt="Skin Plans Logo" />
+          <span>
+            ليجد لك الحل الأمثل للقضاء على مشاكل البشرة
+          </span>
+          <span class="d-inline-block mt-1">
+            <img class="w-100"
+                 src="img/advertising.png"
+                 alt="Advertising" />
+          </span>
+        </h4>
+      </div>
+      <!-- Page 7 -->
+      <div class="text-center d-none" id="page-7">
+        <p class="mb-1">
+          أتناول الخضروات … خلال الأسبوع
+        </p>
+        <ul class="mb-2">
+          <li>
+            <span class="btn-outline-radio" data-form-number="7">
+              لا أتناول الخضروات
+              <input type="radio" name="skin-type" value="71" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="7">
+              مرتين
+              <input type="radio" name="skin-type" value="72" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="7">
+              5-3 مرات
+              <input type="radio" name="skin-type" value="73" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="7">
+              يومياَ
+              <input type="radio" name="skin-type" value="74" hidden />
+            </span>
+          </li>
+        </ul>
+        <button type="button" id="form-7-btn-next" class="btn-circle text-white btn-main disabled"
+                onclick="nextPage(8)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button type="button" id="form-7-btn-previous" class="btn-circle text-white btn-main"
+                onclick="previousPage(6)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Page 8 -->
+      <div class="text-center d-none" id="page-8">
+        <p class="mb-1">
+          عادةً، نومي يكون ...
+        </p>
+        <ul class="mb-2">
+          <li>
+            <span class="btn-outline-radio" data-form-number="8">
+              غير منتظم و متقلب - < 5
+              <input type="radio" name="skin-type" value="81" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="8">
+              6 - 8
+              <input type="radio" name="skin-type" value="82" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="8">
+              +8
+              <input type="radio" name="skin-type" value="83" hidden />
+            </span>
+          </li>
+        </ul>
+        <button type="button" id="form-8-btn-next" class="btn-circle text-white btn-main disabled"
+                onclick="nextPage(9)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button type="button" id="form-8-btn-previous" class="btn-circle text-white btn-main"
+                onclick="previousPage(7)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Page 9 -->
+      <div class="text-center d-none" id="page-9">
+        <p class="mb-1">
+          أضع مستحضرات التجميل
+        </p>
+        <ul class="mb-2">
+          <li>
+            <span class="btn-outline-radio" data-form-number="9">
+              يوميا
+              <input type="radio" name="skin-type" value="91" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="9">
+              أحيانا
+              <input type="radio" name="skin-type" value="92" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="9">
+              لا أضع
+              <input type="radio" name="skin-type" value="93" hidden />
+            </span>
+          </li>
+        </ul>
+        <button type="button" id="form-9-btn-next" class="btn-circle text-white btn-main disabled"
+                onclick="nextPage(10)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button type="button" id="form-9-btn-previous" class="btn-circle text-white btn-main"
+                onclick="previousPage(8)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Page 10 -->
+      <div class="text-center d-none" id="page-10">
+        <p class="mb-1">
+          كمية الضغط النفسي التي اواجهها يومياً
+        </p>
+        <ul class="mb-2">
+          <li>
+            <span class="btn-outline-radio" data-form-number="10">
+              ضغط شديد
+              <input type="radio" name="skin-type" value="101" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="10">
+              ضغط متوسط
+              <input type="radio" name="skin-type" value="102" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="10">
+              ضغط بسيط
+              <input type="radio" name="skin-type" value="103" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-radio" data-form-number="10">
+              لا يوجد ضغوطات
+              <input type="radio" name="skin-type" value="104" hidden />
+            </span>
+          </li>
+        </ul>
+        <button type="button" id="form-10-btn-next" class="btn-circle text-white btn-main disabled"
+                onclick="nextPage(11)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button type="button" id="form-10-btn-previous" class="btn-circle text-white btn-main"
+                onclick="previousPage(9)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- loading -->
+      <div id="weather-data-loading" class="text-center h2 d-none">
+        جاري تحميل معلومات الطقس في منطقتك ...
+      </div>
+      <!-- Page 11 -->
+      <div class="text-center d-none" id="page-11">
+        <p class="mb-1">
+          إليكِ معلومات الطقس في منطقتك والتي لها تأثير سلبي على بشرتك
+        </p>
+        <div class="px-3 w-40 mx-auto">
+          <ul class="mb-2" id="weather-info">
+            <li>
+              <div class="d-flex justify-between mt-1">
+                <div id="weather-degree">
+                  <!-- Weather Degree -->
+                </div>
+                <div>
+                  درجة الحرارة
+                </div>
+              </div>
+              <div class="progress w-100">
+                <div class="w-6-13 bg-main progress-bar">
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex justify-between mt-1">
+                <div>
+                  متوسطة
+                </div>
+                <div>
+                  الرطوبة
+                </div>
+              </div>
+              <div class="progress w-100">
+                <div class="w-7-13 bg-main progress-bar">
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex justify-between mt-1">
+                <div>
+                  عالية
+                </div>
+                <div>
+                  درجة التلوث
+                </div>
+              </div>
+              <div class="progress w-100">
+                <div class="w-10-13 bg-main progress-bar">
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex justify-between mt-1">
+                <div>
+                  عالية
+                </div>
+                <div>
+                  الأشعة فوق البنفسجية
+                </div>
+              </div>
+              <div class="progress w-100">
+                <div class="w-100 bg-main progress-bar">
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button type="button" id="form-11-btn-next" class="btn-circle text-white btn-main"
+                onclick="nextPage(12)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button type="button" id="form-11-btn-previous" class="btn-circle text-white btn-main"
+                onclick="previousPage(10)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Page 12 -->
+      <div class="text-center d-none" id="page-12">
+        <div class="w-40 mx-auto">
+          <p class="mb-1">
+            يمكنك ان تضع صورة لك وسيتمكن الذكاء الاصطناعي من توضيح المشكلة التي تعاني منها بشرتك لتسهيل معرفة الخيار الامثل لك
+          </p>
+          <!-- Scan and View Uploaded Img -->
+          <span class="mt-1 mb-1" id="monitor">
+            <span class="d-none" id="scan-line"></span>
+            <span class="d-none" id="success-icon">
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                   viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"
+                   style="color: rgb(40, 168, 40); font-size: 3rem; position: absolute; top: calc(50% - 1.5rem); left: calc(50% - 1.5rem); background: rgb(255, 255, 255); border-radius: 50%; box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 18px 9px; border: none; outline: none;">
+                <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path>
+              </svg>
+            </span>
+            <span class="d-inline-block screen">
+              <img class="" id="uploaded-img"
+                   src="img/default-img.png"
+                   alt="Default Img" />
+            </span>
+          </span>
+          <div class="d-flex justify-center mb-1">
+            <!-- Open Camera -->
+            <button type="button" class="btn text-white btn-main ml-1"
+                    onclick="openWebCam()" id="web-cam-btn">
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                   viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"
+                   style="width: 1.5rem; height: 1.5rem; vertical-align: sub;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.707 3H14.5l.5.5v9l-.5.5h-13l-.5-.5v-9l.5-.5h3.793l.853-.854L6.5 2h3l.354.146.853.854zM2 12h12V4h-3.5l-.354-.146L9.293 3H6.707l-.853.854L5.5 4H2v8zm1.5-7a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1zM8 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm0-1a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"></path>
+              </svg>
+            </button>
+            <!-- Upload -->
+            <label for="patient-img" class="btn text-white btn-main">
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                   viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"
+                   style="width: 1.3rem; height: 1.3rem; vertical-align: sub;">
+                <path fill-rule="evenodd" d="M14.002 2h-12a1 1 0 00-1 1v10a1 1 0 001 1h12a1 1 0 001-1V3a1 1 0 00-1-1zm-12-1a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V3a2 2 0 00-2-2h-12z" clip-rule="evenodd"></path>
+                <path d="M10.648 7.646a.5.5 0 01.577-.093L15.002 9.5V14h-14v-2l2.646-2.354a.5.5 0 01.63-.062l2.66 1.773 3.71-3.71z"></path>
+                <path fill-rule="evenodd" d="M4.502 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" clip-rule="evenodd"></path>
+              </svg>
+              <input type="file" name="patient-img" accept=".jpg, .jpeg, .png, .bmp"
+                     class="d-none" id="patient-img" onchange="uploadImg(this);" />
+            </label>
+          </div>
+          <div class="mb-2">
+            <button type="button" onclick="nextPage(13)"
+                    class="btn text-main decoration-underline">
+              تجاوز هذه الخطوة
+            </button>
+          </div>
+        </div>
+        <button type="button" id="form-12-btn-next" class="btn-circle text-white btn-main disabled"
+                onclick="nextPage(13)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button type="button" id="form-12-btn-previous" class="btn-circle text-white btn-main"
+                onclick="previousPage(11)">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="0.85em" xmlns="http://www.w3.org/2000/svg" style="font-size: 2rem;">
+            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Page 13 -->
+      <div class="text-center d-none" id="page-13">
+        <div class="w-40 mx-auto">
+          <div class="h4">
+            الخطوة الأخيرة
+          </div>
+          <p>
+            تم الانتهاء من تحليل نتائجك ستعرف تفاصيل بشرتك في الصفحه التاليه يرجي كتابة بيانتك لارسال النتائج
+          </p>
+        </div>
+        <ul class="d-flex justify-center mt-2">
+          <li>
+            <span class="btn-outline-gender ml-1" data-form-number="13">
+              أنثى
+              <input type="radio" name="gender" value="131" hidden />
+            </span>
+          </li>
+          <li>
+            <span class="btn-outline-gender" data-form-number="13">
+              ذكر
+              <input type="radio" name="gender" value="132" hidden />
+            </span>
+          </li>
+        </ul>
+        <ul class="mb-2">
+          <li>
+            <input type="text" name="name" placeholder="اسمك"
+                   class="btn-outline-input pr-1" id="name"/>
+            <p class="text-red mb-1" id="name-error"></p>
+          </li>
+          <li>
+            <input type="number" name="age" placeholder="عمرك"
+                   class="btn-outline-input pr-1" id="age" min="1" max="100"/>
+            <p class="text-red mb-1" id="age-error"></p>
+          </li>
+          <li>
+            <input type="tel" name="phone" placeholder="رقم التليفون"
+                   class="btn-outline-input pr-1" id="phone"/>
+            <p class="text-red mb-1" id="phone-error"></p>
+          </li>
+        </ul>
+        <a id="last-step-btn" href="#"
+           class="btn text-white btn-main h4 disabled">
+          اعرض النتائج الخاصة بي
+        </a>
+        <p class="pt-1 mb-2">
+          <span>
+            information are 100% secure
+          </span>
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em"
+               xmlns="http://www.w3.org/2000/svg" style="font-size: 1.5rem; margin-right: 0.25rem; vertical-align: sub;">
+            <path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM540 701v53c0 4.4-3.6 8-8 8h-40c-4.4 0-8-3.6-8-8v-53a48.01 48.01 0 1 1 56 0zm152-237H332V240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224z"></path>
+          </svg>
+        </p>
+      </div>
+    </form>
+  </section>
+  <!-- Modal -->
+  <div class="modal d-none" id="webCamModal">
+    <div class="modal-content">
+      <div class="text-center mb-2">
+        <video id="webcam" autoplay playsinline width="320" height="400"></video>
+        <canvas id="canvas" class="d-none"></canvas>
+      </div>
+      <div class="d-flex justify-center mb-2">
+        <button type="button" class="btn border-main text-main ml-1" onclick="closeWebCam()">
+          Close
+        </button>
+        <button type="button" class="btn btn-main text-white" onclick="takePic()">
+          Take A Picture
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Page Script -->
+  <script type="text/javascript" src="js/assessment.js" async></script>
+</body>
+</html>
+
